@@ -65,3 +65,6 @@ map('i', 'jk', '<esc>', { desc = 'ESC' })
 
 -- Neotree Explorer
 map('n', '<leader>o', '<cmd>Neotree toggle reveal<cr>', { desc = 'Neotree Open/Close' })
+
+-- map('n', '<leader>cv', '<cmd>AerialToggle!<CR>', { desc = 'Aerial View' })  -- favor trouble symbols toggle
+map('n', '<C-/>', '<cmd>ToggleTerm direction=float<cr>', { desc = 'ToggleTerm' })

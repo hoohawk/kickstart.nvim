@@ -14,14 +14,15 @@ return {
       desc = 'Buffer Diagnostics (Trouble)',
     },
     {
-      '<leader>cs',
+      '<leader>xs',
       '<cmd>Trouble symbols toggle focus=false<cr>',
       desc = 'Symbols (Trouble)',
     },
     {
-      '<leader>cl',
-      '<cmd>Trouble lsp toggle focus=false win.position=right<cr>',
-      desc = 'LSP Definitions / references / ... (Trouble)',
+      '<leader>xl',
+      -- '<cmd>Trouble lsp toggle focus=false win.position=right<cr>',
+      '<cmd>Trouble lsp toggle focus=false<cr>',
+      desc = 'LSP Def / ref / ... (Trouble)',
     },
     {
       '<leader>xL',
@@ -32,6 +33,11 @@ return {
       '<leader>xQ',
       '<cmd>Trouble qflist toggle<cr>',
       desc = 'Quickfix List (Trouble)',
+    },
+    {
+      '<leader>xR',
+      '<cmd>Trouble LSP ref toggle<cr>',
+      desc = 'References (Trouble)',
     },
   },
   opts = {}, -- for default options, refer to the configuration section for custom setup.

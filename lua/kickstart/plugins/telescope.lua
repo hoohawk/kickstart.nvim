@@ -64,6 +64,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     -- Enable Telescope extensions if they are installed
     pcall(require('telescope').load_extension, 'fzf')
     pcall(require('telescope').load_extension, 'ui-select')
+    pcall(require('telescope').load_extension, 'aerial')
 
     -- See `:help telescope.builtin`
     local builtin = require 'telescope.builtin'
@@ -102,5 +103,9 @@ return { -- Fuzzy Finder (files, lsp, etc)
     vim.keymap.set('n', '<leader>fn', function()
       builtin.find_files { cwd = vim.fn.stdpath 'config' }
     end, { desc = 'Search Neovim files' })
+
+    vim.keymap.set('n', '<leader>fa', function()
+      require('telescope').extensions.aerial.aerial()
+    end, { desc = 'Search Aerial' })
   end,
 }
