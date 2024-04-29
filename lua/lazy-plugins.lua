@@ -92,8 +92,9 @@ require('lazy').setup(
 
     require 'kickstart.plugins.treesitter',
 
-    -- Highlight todo, notes, etc in comments
-    { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
+    require 'kickstart.plugins.fidget',
+
+    require 'kickstart.plugins.todo-comments',
 
     -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
     -- init.lua. If you want these files, they are in the repository, so you can just download them and
@@ -106,7 +107,7 @@ require('lazy').setup(
     --
     require 'kickstart.plugins.debug',
 
-    require 'kickstart.plugins.indent_line',
+    require 'kickstart.plugins.indent-blankline',
 
     require 'kickstart.plugins.lint',
 
@@ -118,6 +119,8 @@ require('lazy').setup(
 
     require 'kickstart.plugins.flash',
 
+    require 'kickstart.plugins.hop', -- prefer to use hop for line jumps (large screen, flash exhausts labels)
+
     require 'kickstart.plugins.argtextobj',
 
     require 'kickstart.plugins.code-action-menu',
@@ -127,6 +130,10 @@ require('lazy').setup(
     require 'kickstart.plugins.gitlinker',
 
     require 'kickstart.plugins.tmux-navigator',
+
+    require 'kickstart.plugins.nvim-treesitter-context',
+
+    require 'kickstart.plugins.trouble',
 
     -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
     --    This is the easiest way to modularize your config.

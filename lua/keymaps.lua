@@ -48,12 +48,8 @@ map('n', '<C-d>', '<C-d>zz', { desc = 'Move Down Half Page And Center' })
 map('n', '<C-u>', '<C-u>zz', { desc = 'Move Up Half Page And Center' })
 map('n', '*', '*zz')
 
-map(
-  'n',
-  'L',
-  '<cmd>lua require("flash").jump({search = { mode = "search", max_length = 0 }, label = { after = { 0, 0 } }, pattern = "^" })<CR>',
-  { desc = 'Flash line' }
-)
+map('n', 'L', '<cmd>HopLine<cr>', { desc = 'Flash line (by hop)' })
+map('n', '<C-a>', '<cmd>lua require("flash").jump({pattern = vim.fn.expand("<cword>")})<CR>', { desc = 'Flash word' })
 
 -- Tabs
 map('n', '<Tab>', '<cmd>bn<cr>')
@@ -64,6 +60,7 @@ map('v', 'p', '"_dP') -- V mode: paste without clearing the content
 map('n', 'x', '"_x') -- N mode: delete without copying into register
 map('n', '<leader>a', 'ggVG', { desc = 'Select All' })
 map('n', '<leader>w', '<cmd>wa<cr>', { desc = 'Save All' })
+map('n', '<leader>qq', '<cmd>qa<cr>', { desc = 'Quit All' })
 map('i', 'jk', '<esc>', { desc = 'ESC' })
 
 -- Neotree Explorer
