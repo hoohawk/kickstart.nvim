@@ -71,9 +71,22 @@ return { -- Fuzzy Finder (files, lsp, etc)
     vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Help' })
     vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = 'Search Keymaps' })
     vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Search Files' })
+    -- vim.keymap.set('n', '<leader>fF', builtin.find_files { hidden = true, no_ignore = true }, { desc = 'Search All Files' })
+    vim.keymap.set(
+      'n',
+      '<leader>fF',
+      "<cmd>lua require('telescope.builtin').find_files ({ hidden = true, no_ignore = true })<cr>",
+      { desc = 'Search all Files' }
+    )
     vim.keymap.set('n', '<leader>fs', builtin.builtin, { desc = 'Search Select Telescope' })
     vim.keymap.set('n', '<leader>fw', builtin.grep_string, { desc = 'Search current Word' })
     vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Search by Grep' })
+    vim.keymap.set(
+      'n',
+      '<leader>fG',
+      "<cmd>lua require('telescope.builtin').live_grep ({ additional_args = {'--hidden'} })<cr>",
+      { desc = 'Grep all (exc. gitignore etc.)' }
+    )
     vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = 'Search Diagnostics' })
     vim.keymap.set('n', '<leader>fr', builtin.resume, { desc = 'Search Resume' })
     vim.keymap.set('n', '<leader>f.', builtin.oldfiles, { desc = 'Search Recent Files ("." for repeat)' })

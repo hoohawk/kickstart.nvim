@@ -14,7 +14,8 @@ return { -- Useful plugin to show you pending keybinds.
       ['<leader>s'] = { name = 'Surround', _ = 'which_key_ignore' },
       -- ['<leader>w'] = { name = 'Workspace', _ = 'which_key_ignore' },
       ['<leader>t'] = { name = 'Toggle', _ = 'which_key_ignore' },
-      ['<leader>h'] = { name = 'git Hunk', _ = 'which_key_ignore' },
+      ['<leader>h'] = { name = 'Hunk (git)', _ = 'which_key_ignore' },
+      ['<leader>g'] = { name = 'git', _ = 'which_key_ignore' },
       ['<leader>u'] = { name = 'UI', _ = 'which_key_ignore' },
     }
     -- visual mode
