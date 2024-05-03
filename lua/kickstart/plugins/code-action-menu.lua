@@ -3,10 +3,10 @@ return {
   cmd = 'CodeActionMenu',
   keys = {
     {
-      '<leader>cm',
+      '<leader>lm',
       mode = { 'n' },
       '<cmd>CodeActionMenu<CR>',
-      desc = 'Code Action Menu',
+      desc = 'LSP: Code Action [M]enu',
     },
   },
 }

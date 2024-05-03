@@ -1,3 +1,4 @@
+-- Disabled. In favor of trouble.nvim
 -- return {
 --   'stevearc/aerial.nvim',
 --   event = 'VeryLazy',

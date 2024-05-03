@@ -5,9 +5,9 @@ return {
   opts = { mode = 'cursor', max_lines = 3 },
   keys = {
     {
-      '<leader>ut',
+      '<leader>tt',
       '<cmd>TSContextToggle<cr>',
-      desc = 'Toggle Treesitter Context',
+      desc = 'Toggle Treesitter Code Context',
     },
   },
 }

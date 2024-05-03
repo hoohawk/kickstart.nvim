@@ -4,40 +4,65 @@ return {
   event = 'VeryLazy',
   keys = {
     {
-      '<leader>xx',
+      '<leader>xX',
       '<cmd>Trouble diagnostics toggle<cr>',
-      desc = 'Diagnostics (Trouble)',
+      desc = 'Diagnostics - all buff',
     },
     {
-      '<leader>xX',
+      '<leader>xx',
       '<cmd>Trouble diagnostics toggle filter.buf=0<cr>',
-      desc = 'Buffer Diagnostics (Trouble)',
+      desc = 'Diagnostics - current buf',
     },
     {
       '<leader>xs',
       '<cmd>Trouble symbols toggle focus=false<cr>',
-      desc = 'Symbols (Trouble)',
+      desc = 'Symbols (outline)',
+    },
+    {
+      '<leader>xS',
+      '<cmd>Trouble lsp_document_symbols toggle focus=false<cr>',
+      desc = 'Symbols',
+    },
+    {
+      '<leader>xa',
+      -- '<cmd>Trouble lsp toggle focus=false win.position=right<cr>',
+      '<cmd>Trouble lsp toggle focus=false<cr>',
+      desc = 'LSP Def / ref / [A]ll...',
     },
     {
       '<leader>xl',
-      -- '<cmd>Trouble lsp toggle focus=false win.position=right<cr>',
-      '<cmd>Trouble lsp toggle focus=false<cr>',
-      desc = 'LSP Def / ref / ... (Trouble)',
-    },
-    {
-      '<leader>xL',
       '<cmd>Trouble loclist toggle<cr>',
-      desc = 'Location List (Trouble)',
+      desc = 'Location List',
     },
     {
-      '<leader>xQ',
+      '<leader>xq',
       '<cmd>Trouble qflist toggle<cr>',
-      desc = 'Quickfix List (Trouble)',
+      desc = 'Quickfix List',
     },
     {
-      '<leader>xR',
-      '<cmd>Trouble LSP ref toggle<cr>',
-      desc = 'References (Trouble)',
+      '<leader>xr',
+      '<cmd>Trouble lsp_references toggle<cr>',
+      desc = 'References',
+    },
+    {
+      '<leader>xd',
+      '<cmd>Trouble lsp_definitions toggle<cr>',
+      desc = 'Definitions',
+    },
+    {
+      '<leader>xD',
+      '<cmd>Trouble lsp_declarations toggle<cr>',
+      desc = 'Declarations',
+    },
+    {
+      '<leader>xi',
+      '<cmd>Trouble lsp_implementations toggle<cr>',
+      desc = 'Implementations',
+    },
+    {
+      '<leader>xt',
+      '<cmd>Trouble lsp_type_definitions toggle<cr>',
+      desc = 'Type definitions',
     },
   },
   opts = {}, -- for default options, refer to the configuration section for custom setup.

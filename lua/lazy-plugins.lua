@@ -141,6 +141,10 @@ require('lazy').setup(
 
     require 'kickstart.plugins.lazygit',
 
+    require 'kickstart.plugins.persistence',
+
+    require 'kickstart.plugins.markdown-preview',
+
     -- require 'kickstart.plugins.aerial',  -- favors trouble
 
     -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
