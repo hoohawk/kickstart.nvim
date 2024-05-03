@@ -70,3 +70,6 @@ map('n', '<leader>o', '<cmd>Neotree toggle reveal<cr>', { desc = 'Neotree Open/C
 
 -- map('n', '<leader>cv', '<cmd>AerialToggle!<CR>', { desc = 'Aerial View' })  -- favor trouble symbols toggle
 map('n', '<C-_>', '<cmd>ToggleTerm direction=float<cr>', { desc = 'ToggleTerm' })
+
+-- Preview code action changes
+map({ 'v', 'n' }, 'gm', '<cmd>lua require("actions-preview").code_actions()<CR>', { desc = 'Code Action Menu' })

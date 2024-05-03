@@ -125,7 +125,7 @@ require('lazy').setup(
 
     require 'kickstart.plugins.argtextobj',
 
-    require 'kickstart.plugins.code-action-menu',
+    require 'kickstart.plugins.actions-preview',
 
     require 'kickstart.plugins.alpha-nvim',
 
