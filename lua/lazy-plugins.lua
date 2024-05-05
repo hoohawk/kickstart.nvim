@@ -94,7 +94,7 @@ require('lazy').setup(
 
     require 'kickstart.plugins.treesitter',
 
-    require 'kickstart.plugins.fidget',
+    -- require 'kickstart.plugins.fidget',
 
     require 'kickstart.plugins.todo-comments',
 
@@ -144,6 +144,10 @@ require('lazy').setup(
     require 'kickstart.plugins.persistence',
 
     require 'kickstart.plugins.markdown-preview',
+
+    require 'kickstart.plugins.noice',
+
+    require 'kickstart.plugins.inc-rename',
 
     -- require 'kickstart.plugins.aerial',  -- favors trouble
 

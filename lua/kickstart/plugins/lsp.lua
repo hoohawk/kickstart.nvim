@@ -75,15 +75,16 @@ return { -- LSP Configuration & Plugins
 
         -- Fuzzy find all the symbols in your current document.
         --  Symbols are things like variables, functions, types, etc.
-        map('<leader>ls', require('telescope.builtin').lsp_document_symbols, 'Document Symbols - Telescope')
+        map('<leader>fs', require('telescope.builtin').lsp_document_symbols, 'Symbols - Buffer')
 
         -- Fuzzy find all the symbols in your current workspace.
         --  Similar to document symbols, except searches over your entire project.
-        map('<leader>lS', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Workspace Symbols - Telescope')
+        map('<leader>fS', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Symbols - Workspace')
 
         -- Rename the variable under your cursor.
         --  Most Language Servers support renaming across files, etc.
-        map('<leader>lr', vim.lsp.buf.rename, 'Rename')
+        --  use IncRename, with noice for better UX
+        -- map('<leader>lr', vim.lsp.buf.rename, 'Rename')
 
         -- Execute a code action, usually your cursor needs to be on top of an error
         -- or a suggestion from your LSP for this to activate.

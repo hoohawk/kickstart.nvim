@@ -75,3 +75,7 @@ map('n', '<C-_>', '<cmd>ToggleTerm direction=float<cr>', { desc = 'ToggleTerm' }
 map({ 'v', 'n' }, 'gm', '<cmd>lua require("actions-preview").code_actions()<CR>', { desc = 'Code Action Menu' })
 
 map({ 'v', 'n' }, '<leader>tw', '<cmd>set wrap!<CR>', { desc = 'Toggle wrap' })
+
+map('n', '<leader>lr', function()
+  return ':IncRename ' .. vim.fn.expand '<cword>'
+end, { expr = true, desc = 'Rename' })

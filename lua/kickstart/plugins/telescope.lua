@@ -54,6 +54,14 @@ return { -- Fuzzy Finder (files, lsp, etc)
       --   },
       -- },
       -- pickers = {}
+      defaults = {
+        mappings = {
+          i = {
+            ['<C-/>'] = 'which_key',
+            ['<C-s>'] = 'select_vertical',
+          },
+        },
+      },
       extensions = {
         ['ui-select'] = {
           require('telescope.themes').get_dropdown(),
@@ -69,30 +77,26 @@ return { -- Fuzzy Finder (files, lsp, etc)
     -- See `:help telescope.builtin`
     local builtin = require 'telescope.builtin'
     vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Help' })
-    vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = 'Search Keymaps' })
-    vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Search Files' })
+    vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = 'Keymap' })
+    vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Files' })
     -- vim.keymap.set('n', '<leader>fF', builtin.find_files { hidden = true, no_ignore = true }, { desc = 'Search All Files' })
-    vim.keymap.set(
-      'n',
-      '<leader>fF',
-      "<cmd>lua require('telescope.builtin').find_files ({ hidden = true, no_ignore = true })<cr>",
-      { desc = 'Search all Files' }
-    )
-    vim.keymap.set('n', '<leader>fs', builtin.builtin, { desc = 'Search Select Telescope' })
-    vim.keymap.set('n', '<leader>fw', builtin.grep_string, { desc = 'Search current Word' })
-    vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Search by Grep' })
+    vim.keymap.set('n', '<leader>fF', "<cmd>lua require('telescope.builtin').find_files ({ hidden = true, no_ignore = true })<cr>", { desc = 'Files All' })
+    vim.keymap.set('n', '<leader>fT', builtin.builtin, { desc = 'Telescope builtin' })
+    vim.keymap.set('n', '<leader>fw', builtin.grep_string, { desc = 'Grep current Word' })
+    vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Grep' })
     vim.keymap.set(
       'n',
       '<leader>fG',
       "<cmd>lua require('telescope.builtin').live_grep ({ additional_args = {'--hidden'} })<cr>",
-      { desc = 'Grep all (exc. gitignore etc.)' }
+      { desc = 'Grep All (exc. gitignore etc.)' }
     )
-    vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = 'Search Diagnostics' })
-    vim.keymap.set('n', '<leader>fr', builtin.resume, { desc = 'Search Resume' })
-    vim.keymap.set('n', '<leader>f.', builtin.oldfiles, { desc = 'Search Recent Files ("." for repeat)' })
+    vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = 'Diagnostics' })
+    vim.keymap.set('n', '<leader>fr', builtin.resume, { desc = 'Resume' })
+    vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Buffers' })
+    vim.keymap.set('n', '<leader>f.', builtin.oldfiles, { desc = 'Files Recent ("." for repeat)' })
 
     -- TODO: update these 2, for VCS files
-    vim.keymap.set('n', '<leader><leader>', builtin.git_files, { desc = 'Find VCS files' })
+    vim.keymap.set('n', '<leader><leader>', builtin.git_files, { desc = 'Files VCS' })
 
     -- Slightly advanced example of overriding default behavior and theme
     vim.keymap.set('n', '<leader>/', function()
@@ -101,24 +105,24 @@ return { -- Fuzzy Finder (files, lsp, etc)
         winblend = 10,
         previewer = false,
       })
-    end, { desc = '[/] Fuzzily search in current buffer' })
+    end, { desc = 'Grep curr buffer fuzzily' })
 
     -- It's also possible to pass additional configuration options.
     --  See `:help telescope.builtin.live_grep()` for information about particular keys
     vim.keymap.set('n', '<leader>f/', function()
       builtin.live_grep {
         grep_open_files = true,
-        prompt_title = 'Live Grep in Open Files',
+        prompt_title = 'Grep in Open Files',
       }
-    end, { desc = 'Search in open files' })
+    end, { desc = 'Grep open files' })
 
     -- Shortcut for searching your Neovim configuration files
     vim.keymap.set('n', '<leader>fn', function()
       builtin.find_files { cwd = vim.fn.stdpath 'config' }
-    end, { desc = 'Search Neovim files' })
+    end, { desc = 'Files Neovim' })
 
-    vim.keymap.set('n', '<leader>fa', function()
-      require('telescope').extensions.aerial.aerial()
-    end, { desc = 'Search Aerial' })
+    -- vim.keymap.set('n', '<leader>fa', function()
+    --   require('telescope').extensions.aerial.aerial()
+    -- end, { desc = 'Search Aerial' })
   end,
 }

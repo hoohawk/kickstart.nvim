@@ -44,6 +44,12 @@ return { -- Collection of various small independent plugins/modules
     -- ... and there is more!
     --  Check out: https://github.com/echasnovski/mini.nvim
 
+    -- split or join arguments
     require('mini.splitjoin').setup()
+
+    -- highlight word under cursor
+    require('mini.cursorword').setup()
+    require('mini.tabline').setup()
+    require('mini.bracketed').setup()
   end,
 }
