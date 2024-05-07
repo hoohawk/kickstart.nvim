@@ -65,5 +65,10 @@ return {
       desc = 'Type definitions',
     },
   },
-  opts = {}, -- for default options, refer to the configuration section for custom setup.
+  -- opts = {}, -- for default options, refer to the configuration section for custom setup.
+  config = function()
+    require('trouble').setup()
+    -- works better with transparent plugin
+    require('transparent').clear_prefix 'Trouble'
+  end,
 }
