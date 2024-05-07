@@ -149,6 +149,11 @@ require('lazy').setup(
 
     require 'kickstart.plugins.inc-rename',
 
+    require 'kickstart.plugins.bufferline',
+
+    require 'kickstart.plugins.transparent',
+    -- require 'kickstart.plugins.bg',
+
     -- require 'kickstart.plugins.aerial',  -- favors trouble
 
     -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`

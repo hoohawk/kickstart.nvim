@@ -49,7 +49,9 @@ return { -- Collection of various small independent plugins/modules
 
     -- highlight word under cursor
     require('mini.cursorword').setup()
-    require('mini.tabline').setup()
+
+    -- in favor of bufferline
+    -- require('mini.tabline').setup()
     require('mini.bracketed').setup()
   end,
 }

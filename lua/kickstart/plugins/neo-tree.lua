@@ -13,13 +13,17 @@ return {
   keys = {
     { '\\', ':Neotree reveal<CR>', { desc = 'NeoTree reveal' } },
   },
-  opts = {
-    filesystem = {
-      window = {
-        mappings = {
-          ['\\'] = 'close_window',
+  config = function()
+    require('neo-tree').setup {
+      filesystem = {
+        window = {
+          mappings = {
+            ['\\'] = 'close_window',
+          },
         },
       },
-    },
-  },
+    }
+    -- works better with transparent plugin
+    require('transparent').clear_prefix 'NeoTree'
+  end,
 }
