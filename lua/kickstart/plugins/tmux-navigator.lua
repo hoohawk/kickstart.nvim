@@ -12,6 +12,7 @@ return {
     { '<c-j>', '<cmd><C-U>TmuxNavigateDown<cr>' },
     { '<c-k>', '<cmd><C-U>TmuxNavigateUp<cr>' },
     { '<c-l>', '<cmd><C-U>TmuxNavigateRight<cr>' },
+    -- this key has conflict with default keymap from toggleterm
     { '<c-\\>', '<cmd><C-U>TmuxNavigatePrevious<cr>' },
   },
 }

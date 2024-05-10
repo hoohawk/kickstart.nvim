@@ -154,6 +154,10 @@ require('lazy').setup(
     require 'kickstart.plugins.transparent',
     -- require 'kickstart.plugins.bg',
 
+    require 'kickstart.plugins.lazydocker',
+
+    require 'kickstart.plugins.obsidian',
+
     -- require 'kickstart.plugins.aerial',  -- favors trouble
 
     -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
