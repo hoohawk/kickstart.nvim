@@ -14,17 +14,15 @@ return { -- Useful plugin to show you pending keybinds.
       ['<leader>s'] = { name = 'Surround', _ = 'which_key_ignore' },
       -- ['<leader>w'] = { name = 'Workspace', _ = 'which_key_ignore' },
       ['<leader>t'] = { name = 'Func Toggle', _ = 'which_key_ignore' },
-      ['<leader>h'] = { name = 'Hunk (git)', _ = 'which_key_ignore' },
-      ['<leader>g'] = { name = 'git', _ = 'which_key_ignore' },
+      ['<leader>g'] = { name = 'Git', _ = 'which_key_ignore' },
       ['<leader>x'] = { name = 'Trouble', _ = 'which_key_ignore' },
       ['<leader>q'] = { name = 'Quit/Session', _ = 'which_key_ignore' },
       -- ['<leader>u'] = { name = 'UI', _ = 'which_key_ignore' },
     }
     -- visual mode
     require('which-key').register({
-      ['<leader>h'] = { 'Hunk' },
       ['<leader>s'] = { 'Surround' },
-      ['<leader>g'] = { 'git' },
+      ['<leader>g'] = { 'Git' },
     }, { mode = 'v' })
   end,
 }
