@@ -45,6 +45,8 @@ map('i', '∆', '<esc><cmd>m .+1<cr>==gi', { desc = 'Move Down' })
 map('i', '˚', '<esc><cmd>m .-2<cr>==gi', { desc = 'Move Up' })
 map('v', '∆', ":m '>+1<cr>gv=gv", { desc = 'Move Down' })
 map('v', '˚', ":m '<-2<cr>gv=gv", { desc = 'Move Up' })
+map('v', '<', '<gv', { desc = 'Indent left' })
+map('v', '>', '>gv', { desc = 'Indent right' })
 
 map('n', '<C-d>', '<C-d>zz', { desc = 'Move Down Half Page And Center' })
 map('n', '<C-u>', '<C-u>zz', { desc = 'Move Up Half Page And Center' })
