@@ -158,6 +158,8 @@ require('lazy').setup(
 
     require 'kickstart.plugins.obsidian',
 
+    require 'kickstart.plugins.harpoon',
+
     -- require 'kickstart.plugins.aerial',  -- favors trouble
 
     -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
