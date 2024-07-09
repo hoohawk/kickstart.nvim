@@ -37,6 +37,12 @@ return {
       inc_rename = true, -- enables an input dialog for inc-rename.nvim
       lsp_doc_border = true, -- add a border to hover docs and signature help
     },
+    routes = {
+      {
+        view = 'notify',
+        filter = { event = 'msg_showmode' },
+      },
+    },
     views = { -- set cmdline_pop custom position, make popupmenu row = popup + 3
       cmdline_popup = {
         position = {

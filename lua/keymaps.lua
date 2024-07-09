@@ -66,6 +66,7 @@ map('n', '<leader>a', 'ggVG', { desc = 'Select All' })
 map('n', '<leader>c', '<cmd>bd<cr>', { desc = 'Close Buffer' })
 map('n', '<leader>w', '<cmd>wa<cr>', { desc = 'Save All' })
 map('n', '<leader>qq', '<cmd>qa<cr>', { desc = 'Quit All' })
+map('n', '<leader>qB', '<cmd>%bd|e#<cr>', { desc = 'Quit Buffers except current' })
 map('i', 'jk', '<esc>', { desc = 'ESC' })
 
 -- Neotree Explorer
@@ -99,3 +100,8 @@ map({ 'n', 'i', 's' }, '<c-u>', function()
     return '<c-u>'
   end
 end, { silent = true, expr = true })
+
+map('n', '<leader>n', '<cmd>cn<cr>', { desc = 'Quickfix Next' })
+map('n', '<leader>p', '<cmd>cp<cr>', { desc = 'Quickfix Previous' })
+
+map('n', '<leader>tc', '<cmd>CodeiumToggle<cr>', { desc = '[T]oggle Codeium' })
