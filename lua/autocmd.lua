@@ -11,3 +11,12 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+
+vim.api.nvim_create_autocmd({ 'BufEnter', 'WinEnter', 'CursorMoved', 'CursorMovedI', 'CursorHold', 'CursorHoldI' }, {
+  desc = 'Highlight cursor line',
+  group = vim.api.nvim_create_augroup('cursor-line-highlight', { clear = true }),
+  callback = function()
+    -- Apply your custom highlight
+    vim.api.nvim_set_hl(0, 'CursorLine', { bg = '#2a2f38' })
+  end,
+})
