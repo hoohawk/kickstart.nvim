@@ -59,9 +59,10 @@ return {
       harpoon.ui:toggle_quick_menu(harpoon:list())
     end, { desc = 'Harpoon: quick menu' })
 
-    vim.keymap.set('n', '<C-h>', function()
+    -- c-h is used for nav
+    vim.keymap.set('n', '<C-m>', function()
       harpoon:list():add()
-    end, { desc = 'Harpoon: harpoon it' })
+    end, { desc = 'Harpoon: mark it' })
 
     -- vim.keymap.set('n', '<C-m>', function()
     --   harpoon:list():add()

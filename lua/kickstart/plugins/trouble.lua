@@ -1,6 +1,5 @@
 return {
   'folke/trouble.nvim',
-  branch = 'dev', -- IMPORTANT! v3 beta
   event = 'VeryLazy',
   keys = {
     {
