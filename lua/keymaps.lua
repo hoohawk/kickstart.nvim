@@ -2,7 +2,6 @@
 --  See `:help vim.keymap.set()`
 
 local map = vim.keymap.set
-
 -- hlight on search, but clear on pressing <Esc> in normal mode
 map('n', '<esc>', '<cmd>nohlsearch<cr>')
 
@@ -55,6 +54,8 @@ map('n', '*', '*zz')
 map('n', 'L', '<cmd>HopLine<cr>', { desc = 'Flash line (by hop)' })
 map('n', '<C-a>', '<cmd>lua require("flash").jump({pattern = vim.fn.expand("<cword>")})<CR>', { desc = 'Flash word' })
 
+-- map('n', '<leader>w', '<cmd>lua require("which-key").show({keys = "<C-w>", loop=true} )<CR>', { noremap = true, desc = 'Win Hydra' })
+
 -- Tabs
 map('n', '<Tab>', '<cmd>bn<cr>')
 map('n', '<S-Tab>', '<cmd>bp<cr>')
@@ -87,7 +88,12 @@ map('n', '<leader>lr', function()
 end, { expr = true, desc = 'Rename' })
 
 map('n', '<leader>o', '<cmd>Neotree toggle reveal<cr>', { desc = 'Neotree Open/Close' })
-map('n', '<leader>=', '<C-w>=', { desc = 'Equal window size' })
+-- map('n', '<leader>=', '<C-w>=', { desc = 'Equal window size' })
+map('n', '<C-=>', '<C-w>=', { desc = 'Equal window size' })
+map('n', '<C-.>', '<C-w>>', { desc = 'Enlarge window size' })
+map('n', '<C-,>', '<C-w><', { desc = 'Shrink window size' })
+-- map('n', '<leader>,', '<C-w><', { desc = 'Shrink window size' })
+-- map('n', '<leader>.', '<C-w>>', { desc = 'Enlarge window size' })
 
 -- noice LSP doc scroll
 map({ 'n', 'i', 's' }, '<c-d>', function()
