@@ -66,7 +66,14 @@ return {
   },
   -- opts = {}, -- for default options, refer to the configuration section for custom setup.
   config = function()
-    require('trouble').setup()
+    require('trouble').setup {
+      open_no_results = true,
+      focus = true,
+      keys = {
+        zz = 'fold_close_all',
+        zo = 'fold_open_recursive',
+      },
+    }
     -- works better with transparent plugin
     require('transparent').clear_prefix 'Trouble'
   end,

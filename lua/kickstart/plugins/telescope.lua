@@ -78,15 +78,16 @@ return { -- Fuzzy Finder (files, lsp, etc)
     local builtin = require 'telescope.builtin'
     vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Help' })
     vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = 'Keymap' })
-    vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Files' })
+    -- vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Files' })
+    -- vim.keymap.set('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files ({ hidden = true })<cr>", { desc = 'Files All' })
     -- vim.keymap.set('n', '<leader>fF', builtin.find_files { hidden = true, no_ignore = true }, { desc = 'Search All Files' })
-    vim.keymap.set('n', '<leader>fF', "<cmd>lua require('telescope.builtin').find_files ({ hidden = true, no_ignore = true })<cr>", { desc = 'Files All' })
+    vim.keymap.set('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files ({ hidden = true, no_ignore = true })<cr>", { desc = 'Files All' })
     vim.keymap.set('n', '<leader>fT', builtin.builtin, { desc = 'Telescope builtin' })
     vim.keymap.set('n', '<leader>fw', builtin.grep_string, { desc = 'Grep current Word' })
-    vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Grep' })
+    -- vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Grep' })
     vim.keymap.set(
       'n',
-      '<leader>fG',
+      '<leader>fg',
       "<cmd>lua require('telescope.builtin').live_grep ({ additional_args = {'--hidden'} })<cr>",
       { desc = 'Grep All (exc. gitignore etc.)' }
     )

@@ -75,7 +75,10 @@ return { -- LSP Configuration & Plugins
 
         -- Fuzzy find all the symbols in your current document.
         --  Symbols are things like variables, functions, types, etc.
-        map('<leader>fs', require('telescope.builtin').lsp_document_symbols, 'Symbols - Buffer')
+        map('<leader>fs', function()
+          -- require('telescope.builtin').lsp_document_symbols { ignore_symbols = { 'Variable' } }
+          require('telescope.builtin').lsp_document_symbols()
+        end, 'Symbols - Buffer')
 
         -- Fuzzy find all the symbols in your current workspace.
         --  Similar to document symbols, except searches over your entire project.
@@ -97,6 +100,9 @@ return { -- LSP Configuration & Plugins
         -- WARN: This is not Goto Definition, this is Goto Declaration.
         --  For example, in C this would take you to the header.
         map('gD', vim.lsp.buf.declaration, 'Declaration')
+
+        map('gs', '<cmd>Trouble symbols toggle focus=false<cr>', 'Symbols (outline)')
+        map('ga', '<cmd>Trouble lsp toggle focus=true<cr>', 'LSP (A)ll')
 
         -- The following two autocommands are used to highlight references of the
         -- word under your cursor when your cursor rests there for a little while.
