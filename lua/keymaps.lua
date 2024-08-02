@@ -89,9 +89,11 @@ end, { expr = true, desc = 'Rename' })
 
 map('n', '<leader>o', '<cmd>Neotree toggle reveal<cr>', { desc = 'Neotree Open/Close' })
 -- map('n', '<leader>=', '<C-w>=', { desc = 'Equal window size' })
-map('n', '<C-=>', '<C-w>=', { desc = 'Equal window size' })
-map('n', '<C-.>', '<C-w>>', { desc = 'Enlarge window size' })
-map('n', '<C-,>', '<C-w><', { desc = 'Shrink window size' })
+
+-- NOTE: macOS does not work with <A-,> style, you can type the key combo in the terminal and copy out the char
+map('n', '≤', '<C-w>>', { desc = 'Enlarge window size', noremap = true })
+map('n', '≥', '<C-w><', { desc = 'Shrink window size', noremap = true })
+map('n', '≠', '<C-w>=', { desc = 'Equal window size', noremap = true })
 -- map('n', '<leader>,', '<C-w><', { desc = 'Shrink window size' })
 -- map('n', '<leader>.', '<C-w>>', { desc = 'Enlarge window size' })
 
