@@ -137,11 +137,19 @@ return { -- LSP Configuration & Plugins
       end,
     })
 
+    -- Function to check if an augroup exists
+    local function augroup_exists(group_name)
+      local ok, groups = pcall(vim.api.nvim_get_autocmds, { group = group_name })
+      return ok and #groups > 0
+    end
+
     vim.api.nvim_create_autocmd('LspDetach', {
       group = vim.api.nvim_create_augroup('kickstart-lsp-detach', { clear = true }),
       callback = function(event)
         vim.lsp.buf.clear_references()
-        vim.api.nvim_clear_autocmds { group = 'kickstart-lsp-highlight', buffer = event.buf }
+        if augroup_exists 'kickstart-lsp-highlight' then
+          vim.api.nvim_clear_autocmds { group = 'kickstart-lsp-highlight', buffer = event.buf }
+        end
       end,
     })
 
