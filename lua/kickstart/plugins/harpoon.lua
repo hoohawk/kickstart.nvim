@@ -84,13 +84,13 @@ return {
       harpoon:list():select(4)
     end, { desc = 'Harpoon: file 4' })
 
-    vim.keymap.set('n', '<C-p>', function()
+    vim.keymap.set('n', '<C-f>', function()
       harpoon:list():prev()
-    end, { desc = 'Harpoon: previous' })
+    end, { desc = 'Harpoon: previous', noremap = true })
 
-    vim.keymap.set('n', '<C-n>', function()
+    vim.keymap.set('n', '<C-b>', function()
       harpoon:list():next()
-    end, { desc = 'Harpoon: next' })
+    end, { desc = 'Harpoon: next', noremap = true })
   end,
   event = 'VeryLazy', -- or any other event you might want to use.
 }
