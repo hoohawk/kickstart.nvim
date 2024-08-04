@@ -91,7 +91,8 @@ return { -- LSP Configuration & Plugins
 
         -- Execute a code action, usually your cursor needs to be on top of an error
         -- or a suggestion from your LSP for this to activate.
-        map('<leader>la', vim.lsp.buf.code_action, 'Code Action')
+        -- use gm for action menu instead
+        -- map('<leader>la', vim.lsp.buf.code_action, 'Code Action')
 
         -- Opens a popup that displays documentation about the word under your cursor
         --  See `:help K` for why this keymap.
@@ -102,7 +103,7 @@ return { -- LSP Configuration & Plugins
         map('gD', vim.lsp.buf.declaration, 'Declaration')
 
         map('gs', '<cmd>Trouble symbols toggle focus=false<cr>', 'Symbols (outline)')
-        map('ga', '<cmd>Trouble lsp toggle focus=true<cr>', 'LSP (A)ll')
+        map('ga', '<cmd>Trouble lsp toggle focus=true<cr>', 'LSP (A)ll def / ref / ..')
 
         -- The following two autocommands are used to highlight references of the
         -- word under your cursor when your cursor rests there for a little while.

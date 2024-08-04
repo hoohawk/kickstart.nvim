@@ -4,6 +4,7 @@ return { -- Useful plugin to show you pending keybinds.
   config = function() -- This is the function that runs, AFTER loading
     require('which-key').setup {
       preset = 'classic',
+      sort = { 'desc' },
       icons = {
         mappings = false,
       },
