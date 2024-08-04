@@ -14,6 +14,7 @@ return { -- Useful plugin to show you pending keybinds.
       { '<leader>f', group = 'Find' },
       { '<leader>x', group = 'Trouble' },
       { '<leader>q', group = 'Quit/Session' },
+      { '<leader>w', group = 'Window' },
     }
     -- normal and visual mode
     require('which-key').add {

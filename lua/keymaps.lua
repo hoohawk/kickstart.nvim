@@ -65,7 +65,7 @@ map('v', 'p', '"_dP') -- V mode: paste without clearing the content
 map('n', 'x', '"_x') -- N mode: delete without copying into register
 map('n', '<leader>a', 'ggVG', { desc = 'Select All' })
 map('n', '<leader>c', '<cmd>bd<cr>', { desc = 'Close Buffer' })
-map('n', '<leader>w', '<cmd>wa<cr>', { desc = 'Save All' })
+-- map('n', '<leader>w', '<cmd>wa<cr>', { desc = 'Save All' })
 map('n', '<leader>qq', '<cmd>qa<cr>', { desc = 'Quit All' })
 map('n', '<leader>qB', '<cmd>%bd|e#<cr>', { desc = 'Quit Buffers except current' })
 map('i', 'jk', '<esc>', { desc = 'ESC' })
@@ -79,7 +79,7 @@ map('n', '<C-/>', '<cmd>ToggleTerm direction=float<cr>', { desc = 'ToggleTerm' }
 map('t', '<C-/>', '<C-\\><C-n><C-w>l', { desc = 'ToggleTerm' })
 
 -- Preview code action changes
-map({ 'v', 'n' }, 'gm', '<cmd>lua require("actions-preview").code_actions()<CR>', { desc = 'Code Action Menu' })
+map({ 'v', 'n' }, 'gm', '<cmd>lua require("actions-preview").code_actions()<CR>', { desc = 'LSP: Code Action Menu' })
 
 map({ 'v', 'n' }, '<leader>tw', '<cmd>set wrap!<CR>', { desc = 'Toggle wrap' })
 
@@ -91,11 +91,15 @@ map('n', '<leader>o', '<cmd>Neotree toggle reveal<cr>', { desc = 'Neotree Open/C
 -- map('n', '<leader>=', '<C-w>=', { desc = 'Equal window size' })
 
 -- NOTE: macOS does not work with <A-,> style, you can type the key combo in the terminal and copy out the char
-map('n', '≤', '<C-w>>', { desc = 'Enlarge window size', noremap = true })
-map('n', '≥', '<C-w><', { desc = 'Shrink window size', noremap = true })
+
+-- alt-l for continuously enlarge
+map('n', '¬', '<C-w>><C-w>>', { desc = 'Enlarge window size', noremap = true })
+-- alt-h for continuously shrink
+map('n', '˙', '<C-w><<C-w><', { desc = 'Shrink window size', noremap = true })
+-- alt-= for equal
 map('n', '≠', '<C-w>=', { desc = 'Equal window size', noremap = true })
--- map('n', '<leader>,', '<C-w><', { desc = 'Shrink window size' })
--- map('n', '<leader>.', '<C-w>>', { desc = 'Enlarge window size' })
+map('n', '<leader>wm', '<C-w>|', { desc = 'Max out window size', noremap = true })
+map('n', '<leader>we', '<C-w>=', { desc = 'Equal window size', noremap = true })
 
 -- noice LSP doc scroll
 map({ 'n', 'i', 's' }, '<c-d>', function()
