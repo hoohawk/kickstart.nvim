@@ -52,6 +52,9 @@ map('n', '<C-u>', '<C-u>zz', { desc = 'Move Up Half Page And Center' })
 map('n', '*', '*zz')
 
 map('n', 'L', '<cmd>HopLine<cr>', { desc = 'Flash line (by hop)' })
+
+map('n', 'B', '<cmd>lua require("dropbar.api").pick()<cr>', { desc = 'drop Bar pick' })
+
 map('n', '<C-a>', '<cmd>lua require("flash").jump({pattern = vim.fn.expand("<cword>")})<CR>', { desc = 'Flash word' })
 
 -- map('n', '<leader>w', '<cmd>lua require("which-key").show({keys = "<C-w>", loop=true} )<CR>', { noremap = true, desc = 'Win Hydra' })
@@ -100,6 +103,9 @@ map('n', '˙', '<C-w><<C-w><', { desc = 'Shrink window size', noremap = true })
 map('n', '≠', '<C-w>=', { desc = 'Equal window size', noremap = true })
 map('n', '<leader>wm', '<C-w>|', { desc = 'Max out window size', noremap = true })
 map('n', '<leader>we', '<C-w>=', { desc = 'Equal window size', noremap = true })
+
+map('n', '<leader>wt', '<cmd>ToggleTerm direction=float<cr>', { desc = 'ToggleTerm Window' })
+map('t', '<leader>wt', '<C-\\><C-n><C-w>l', { desc = 'ToggleTerm' })
 
 -- noice LSP doc scroll
 map({ 'n', 'i', 's' }, '<c-d>', function()
