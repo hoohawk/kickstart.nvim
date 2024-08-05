@@ -183,6 +183,48 @@ return { -- LSP Configuration & Plugins
       -- But for many setups, the LSP (`tsserver`) will work just fine
       -- tsserver = {},
       --
+      ruff = {},
+      pylsp = {
+        settings = {
+          pylsp = {
+            plugins = {
+              -- prefer ruff for those
+              pycodestyle = {
+                enabled = false,
+              },
+              flake8 = {
+                enabled = false,
+              },
+              autopep8 = {
+                enabled = false,
+              },
+              yapf = {
+                enabled = false,
+              },
+              pylint = {
+                enabled = false,
+              },
+              rope_autoimport = {
+                enabled = true,
+              },
+              rope_completions = {
+                enabled = true,
+              },
+              mccabe = {
+                enabled = false,
+              },
+              pyflakes = {
+                enabled = false,
+              },
+              pydocstyle = {
+                enabled = false,
+                convention = 'google',
+              },
+            },
+          },
+        },
+      },
+
       yamlls = {},
 
       lua_ls = {
