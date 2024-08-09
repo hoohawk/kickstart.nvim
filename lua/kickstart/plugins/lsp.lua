@@ -184,46 +184,47 @@ return { -- LSP Configuration & Plugins
       -- tsserver = {},
       --
       ruff = {},
-      pylsp = {
-        settings = {
-          pylsp = {
-            plugins = {
-              -- prefer ruff for those
-              pycodestyle = {
-                enabled = false,
-              },
-              flake8 = {
-                enabled = false,
-              },
-              autopep8 = {
-                enabled = false,
-              },
-              yapf = {
-                enabled = false,
-              },
-              pylint = {
-                enabled = false,
-              },
-              rope_autoimport = {
-                enabled = true,
-              },
-              rope_completions = {
-                enabled = true,
-              },
-              mccabe = {
-                enabled = false,
-              },
-              pyflakes = {
-                enabled = false,
-              },
-              pydocstyle = {
-                enabled = false,
-                convention = 'google',
-              },
-            },
-          },
-        },
-      },
+      -- pyright provides more accurate LSP doc symbols
+      -- pylsp = {
+      --   settings = {
+      --     pylsp = {
+      --       plugins = {
+      --         -- prefer ruff for those
+      --         pycodestyle = {
+      --           enabled = false,
+      --         },
+      --         flake8 = {
+      --           enabled = false,
+      --         },
+      --         autopep8 = {
+      --           enabled = false,
+      --         },
+      --         yapf = {
+      --           enabled = false,
+      --         },
+      --         pylint = {
+      --           enabled = false,
+      --         },
+      --         rope_autoimport = {
+      --           enabled = true,
+      --         },
+      --         rope_completions = {
+      --           enabled = true,
+      --         },
+      --         mccabe = {
+      --           enabled = false,
+      --         },
+      --         pyflakes = {
+      --           enabled = false,
+      --         },
+      --         pydocstyle = {
+      --           enabled = false,
+      --           convention = 'google',
+      --         },
+      --       },
+      --     },
+      --   },
+      -- },
 
       yamlls = {},
 

@@ -84,7 +84,7 @@ map('t', '<C-/>', '<C-\\><C-n><C-w>l', { desc = 'ToggleTerm' })
 -- Preview code action changes
 map({ 'v', 'n' }, 'gm', '<cmd>lua require("actions-preview").code_actions()<CR>', { desc = 'LSP: Code Action Menu' })
 
-map({ 'v', 'n' }, '<leader>tw', '<cmd>set wrap!<CR>', { desc = 'Toggle wrap' })
+map({ 'v', 'n' }, '<leader>tw', '<cmd>set wrap!<CR>', { desc = '[T]oggle [w]rap' })
 
 map('n', '<leader>lr', function()
   return ':IncRename ' .. vim.fn.expand '<cword>'
@@ -104,8 +104,8 @@ map('n', '≠', '<C-w>=', { desc = 'Equal window size', noremap = true })
 map('n', '<leader>wm', '<C-w>|', { desc = 'Max out window size', noremap = true })
 map('n', '<leader>we', '<C-w>=', { desc = 'Equal window size', noremap = true })
 
-map('n', '<leader>wt', '<cmd>ToggleTerm direction=float<cr>', { desc = 'ToggleTerm Window' })
-map('t', '<leader>wt', '<C-\\><C-n><C-w>l', { desc = 'ToggleTerm' })
+map('n', '<leader>tt', '<cmd>ToggleTerm direction=float<cr>', { desc = '[T]oggle[T]erm Window' })
+map('t', '<leader>tt', '<C-\\><C-n><C-w>l', { desc = '[T]oggle[T]erm' })
 
 -- noice LSP doc scroll
 map({ 'n', 'i', 's' }, '<c-d>', function()
