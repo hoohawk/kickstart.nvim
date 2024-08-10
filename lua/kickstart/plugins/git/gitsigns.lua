@@ -64,8 +64,8 @@ return {
         end, { desc = 'Diff against last commit' })
 
         -- Toggles
-        map('n', '<leader>tb', gitsigns.toggle_current_line_blame, { desc = 'Toggle show blame line' })
-        map('n', '<leader>tD', gitsigns.toggle_deleted, { desc = 'Toggle show Deleted' })
+        map('n', '<leader>tb', gitsigns.toggle_current_line_blame, { desc = 'Toggle - blame line' })
+        map('n', '<leader>tD', gitsigns.toggle_deleted, { desc = 'Toggle - git deleted' })
       end,
     },
   },

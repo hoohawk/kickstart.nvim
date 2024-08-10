@@ -7,7 +7,7 @@ return {
     {
       '<leader>ts',
       '<cmd>TSContextToggle<cr>',
-      desc = '[T]ggle Tree[s]tter Code Context',
+      desc = 'Toggle - treestter context',
     },
   },
 }
