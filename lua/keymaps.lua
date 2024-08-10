@@ -81,6 +81,11 @@ map('n', '<leader>o', '<cmd>Neotree toggle reveal<cr>', { desc = 'Neotree Open/C
 map('n', '<C-/>', '<cmd>ToggleTerm direction=float<cr>', { desc = 'ToggleTerm' })
 map('t', '<C-/>', '<C-\\><C-n><C-w>l', { desc = 'ToggleTerm' })
 
+-- '<C-/>' is tricky with tmux. Use <C-_>, because the terminal would interpret c-/ as ASCII control character SUB (substitute).
+-- this provides the same functionality as using c-/ in standard iterm window
+vim.api.nvim_set_keymap('n', '<C-_>', ':ToggleTerm direction=float<CR>', { noremap = true, silent = true, desc = 'Toggle Terminal' })
+vim.api.nvim_set_keymap('t', '<C-_>', '<C-\\><C-n>:ToggleTerm<CR>', { noremap = true, silent = true, desc = 'Toggle Terminal' })
+
 -- Preview code action changes
 map({ 'v', 'n' }, 'gm', '<cmd>lua require("actions-preview").code_actions()<CR>', { desc = 'LSP: Code Action Menu' })
 
@@ -104,8 +109,9 @@ map('n', '≠', '<C-w>=', { desc = 'Equal window size', noremap = true })
 map('n', '<leader>wm', '<C-w>|', { desc = 'Max out window size', noremap = true })
 map('n', '<leader>we', '<C-w>=', { desc = 'Equal window size', noremap = true })
 
-map('n', '<leader>tt', '<cmd>ToggleTerm direction=float<cr>', { desc = 'ToggleTerm Window' })
-map('t', '<leader>tt', '<C-\\><C-n><C-w>l', { desc = 'ToggleTerm' })
+-- you can use c-/ to toggle terminal
+-- map('n', '<leader>tt', '<cmd>ToggleTerm direction=float<cr>', { desc = 'ToggleTerm Window' })
+-- map('t', '<leader>tt', '<C-\\><C-n><C-w>l', { desc = 'ToggleTerm' })
 
 -- noice LSP doc scroll
 map({ 'n', 'i', 's' }, '<c-d>', function()
