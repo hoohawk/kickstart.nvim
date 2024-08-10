@@ -57,7 +57,9 @@ return {
         map('n', '<leader>gu', gitsigns.undo_stage_hunk, { desc = 'undo stage hunk' })
         map('n', '<leader>gR', gitsigns.reset_buffer, { desc = 'Reset buffer' })
         map('n', '<leader>gp', gitsigns.preview_hunk_inline, { desc = 'preview hunk' })
-        map('n', '<leader>gb', gitsigns.blame_line, { desc = 'blame line' })
+        -- let fugitive use this keybind for blame the file
+        -- you can toggle gitsigns line blame with <leader>tb
+        -- map('n', '<leader>gb', gitsigns.blame_line, { desc = 'blame line' })
         map('n', '<leader>gd', gitsigns.diffthis, { desc = 'diff against index' })
         map('n', '<leader>gD', function()
           gitsigns.diffthis '@'
