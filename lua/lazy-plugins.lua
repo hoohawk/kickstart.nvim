@@ -163,7 +163,7 @@ require('lazy').setup(
 
     require 'kickstart.plugins.outline',
 
-    require 'kickstart.plugins.git.lazygit', -- best use with toggleterm
+    require 'kickstart.plugins.git.lazygit',
     require 'kickstart.plugins.git.gitsigns', -- adds gitsigns recommend keymaps
     -- require 'kickstart.plugins.git.neogit',  -- similar to fugitive
     require 'kickstart.plugins.git.fugitive',
