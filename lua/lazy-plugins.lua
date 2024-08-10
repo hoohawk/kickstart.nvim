@@ -117,8 +117,6 @@ require('lazy').setup(
 
     require 'kickstart.plugins.neo-tree',
 
-    require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
-
     require 'kickstart.plugins.flash',
 
     require 'kickstart.plugins.hop', -- prefer to use hop for line jumps (large screen, flash exhausts labels)
@@ -129,7 +127,7 @@ require('lazy').setup(
 
     require 'kickstart.plugins.alpha-nvim',
 
-    require 'kickstart.plugins.gitlinker',
+    require 'kickstart.plugins.git.gitlinker',
 
     require 'kickstart.plugins.tmux-navigator',
 
@@ -138,8 +136,6 @@ require('lazy').setup(
     require 'kickstart.plugins.trouble',
 
     require 'kickstart.plugins.toggleterm',
-
-    require 'kickstart.plugins.lazygit',
 
     require 'kickstart.plugins.persistence',
 
@@ -167,7 +163,11 @@ require('lazy').setup(
 
     require 'kickstart.plugins.outline',
 
-    require 'kickstart.plugins.neogit',
+    require 'kickstart.plugins.git.lazygit', -- best use with toggleterm
+    require 'kickstart.plugins.git.gitsigns', -- adds gitsigns recommend keymaps
+    -- require 'kickstart.plugins.git.neogit',  -- similar to fugitive
+    require 'kickstart.plugins.git.fugitive',
+    require 'kickstart.plugins.git.diffview',
 
     -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
     --    This is the easiest way to modularize your config.
