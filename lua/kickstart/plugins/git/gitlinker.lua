@@ -1,7 +1,6 @@
 return {
   'ruifm/gitlinker.nvim',
   event = 'VeryLazy',
-  opts = {},
   keys = {
     {
       '<leader>gy',
