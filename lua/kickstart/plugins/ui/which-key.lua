@@ -20,7 +20,7 @@ return { -- Useful plugin to show you pending keybinds.
     -- normal and visual mode
     require('which-key').add {
       mode = { 'n', 'v' },
-      { '<leader>s', group = 'Surround' },
+      { '<leader>s', group = 'Surround' }, -- surround by mini.surround
       { '<leader>g', group = 'Git' },
       { '<leader>t', group = 'Func Toggle' },
       { '<leader>l', group = 'LSP' },
