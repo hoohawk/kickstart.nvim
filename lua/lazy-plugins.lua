@@ -71,8 +71,6 @@ require('lazy').setup(
     -- after the plugin has been loaded:
     --  config = function() ... end
 
-    require 'kickstart.plugins.which-key',
-
     -- NOTE: Plugins can specify dependencies.
     --
     -- The dependencies are proper plugin specifications as well - anything
@@ -80,23 +78,40 @@ require('lazy').setup(
     --
     -- Use the `dependencies` key to specify the dependencies of a particular plugin
 
-    require 'kickstart.plugins.telescope',
+    require 'kickstart.plugins.ui.which-key',
+    require 'kickstart.plugins.ui.telescope',
+    require 'kickstart.plugins.ui.tokyonight',
+    -- require 'kickstart.plugins.ui.fidget',
+    require 'kickstart.plugins.ui.todo-comments',
+    require 'kickstart.plugins.ui.indent-blankline',
+    require 'kickstart.plugins.ui.neo-tree',
+    require 'kickstart.plugins.ui.flash',
+    require 'kickstart.plugins.ui.hop', -- prefer to use hop for line jumps (large screen, flash exhausts labels)
+    require 'kickstart.plugins.ui.alpha-nvim',
+    require 'kickstart.plugins.ui.noice',
+    require 'kickstart.plugins.ui.bufferline',
+    require 'kickstart.plugins.ui.transparent',
 
-    require 'kickstart.plugins.lsp',
+    -- require 'kickstart.plugins.ui.bg',
+    require 'kickstart.plugins.ui.harpoon',
+    require 'kickstart.plugins.ui.dropbar',
 
-    require 'kickstart.plugins.conform',
+    require 'kickstart.plugins.ext.mini',
+    require 'kickstart.plugins.ext.autopairs',
+    require 'kickstart.plugins.ext.argtextobj',
+    require 'kickstart.plugins.ext.tmux-navigator',
 
-    require 'kickstart.plugins.nvim-cmp',
-
-    require 'kickstart.plugins.tokyonight',
-
-    require 'kickstart.plugins.mini',
-
-    require 'kickstart.plugins.treesitter',
-
-    -- require 'kickstart.plugins.fidget',
-
-    require 'kickstart.plugins.todo-comments',
+    require 'kickstart.plugins.lsp.lsp-config',
+    require 'kickstart.plugins.lsp.conform',
+    require 'kickstart.plugins.lsp.nvim-cmp',
+    require 'kickstart.plugins.lsp.treesitter',
+    require 'kickstart.plugins.lsp.actions-preview',
+    require 'kickstart.plugins.lsp.nvim-treesitter-context',
+    require 'kickstart.plugins.lsp.trouble',
+    require 'kickstart.plugins.lsp.inc-rename',
+    require 'kickstart.plugins.lsp.codeium',
+    -- require 'kickstart.plugins.lsp.aerial',  -- favors trouble
+    require 'kickstart.plugins.lsp.outline',
 
     -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
     -- init.lua. If you want these files, they are in the repository, so you can just download them and
@@ -107,67 +122,20 @@ require('lazy').setup(
     --  Here are some example plugins that I've included in the Kickstart repository.
     --  Uncomment any of the lines below to enable them (you will need to restart nvim).
     --
-    require 'kickstart.plugins.debug',
+    require 'kickstart.plugins.dap.debug',
 
-    require 'kickstart.plugins.indent-blankline',
-
-    require 'kickstart.plugins.lint',
-
-    require 'kickstart.plugins.autopairs',
-
-    require 'kickstart.plugins.neo-tree',
-
-    require 'kickstart.plugins.flash',
-
-    require 'kickstart.plugins.hop', -- prefer to use hop for line jumps (large screen, flash exhausts labels)
-
-    require 'kickstart.plugins.argtextobj',
-
-    require 'kickstart.plugins.actions-preview',
-
-    require 'kickstart.plugins.alpha-nvim',
-
-    require 'kickstart.plugins.git.gitlinker',
-
-    require 'kickstart.plugins.tmux-navigator',
-
-    require 'kickstart.plugins.nvim-treesitter-context',
-
-    require 'kickstart.plugins.trouble',
-
-    require 'kickstart.plugins.toggleterm',
-
-    require 'kickstart.plugins.persistence',
-
-    require 'kickstart.plugins.markdown-preview',
-
-    require 'kickstart.plugins.noice',
-
-    require 'kickstart.plugins.inc-rename',
-
-    require 'kickstart.plugins.bufferline',
-
-    require 'kickstart.plugins.transparent',
-    -- require 'kickstart.plugins.bg',
-
-    require 'kickstart.plugins.lazydocker',
-
-    require 'kickstart.plugins.obsidian',
-
-    require 'kickstart.plugins.harpoon',
-
-    require 'kickstart.plugins.codeium',
-    -- require 'kickstart.plugins.aerial',  -- favors trouble
-
-    require 'kickstart.plugins.dropbar',
-
-    require 'kickstart.plugins.outline',
+    require 'kickstart.plugins.tool.toggleterm',
+    require 'kickstart.plugins.tool.persistence',
+    require 'kickstart.plugins.tool.markdown-preview',
+    require 'kickstart.plugins.tool.lazydocker',
+    require 'kickstart.plugins.tool.obsidian',
 
     require 'kickstart.plugins.git.lazygit',
     require 'kickstart.plugins.git.gitsigns', -- adds gitsigns recommend keymaps
     -- require 'kickstart.plugins.git.neogit',  -- similar to fugitive
     require 'kickstart.plugins.git.fugitive',
     require 'kickstart.plugins.git.diffview',
+    require 'kickstart.plugins.git.gitlinker',
 
     -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
     --    This is the easiest way to modularize your config.
