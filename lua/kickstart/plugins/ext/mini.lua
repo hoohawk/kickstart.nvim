@@ -1,7 +1,7 @@
 return { -- Collection of various small independent plugins/modules
   'echasnovski/mini.nvim',
   config = function()
-    -- Better Around/Inside textobjects
+    -- Better Around/Inside textobjects (a, i textobjects)
     --
     -- Examples:
     --  - va)  - [V]isually select [A]round [)]paren
@@ -42,9 +42,6 @@ return { -- Collection of various small independent plugins/modules
       return '%2l:%-2v'
     end
 
-    -- ... and there is more!
-    --  Check out: https://github.com/echasnovski/mini.nvim
-
     -- split or join arguments
     require('mini.splitjoin').setup()
 
@@ -52,7 +49,39 @@ return { -- Collection of various small independent plugins/modules
     require('mini.cursorword').setup()
 
     -- in favor of bufferline
+    -- which provides out of box background blending with the main window
     -- require('mini.tabline').setup()
+
+    --
     require('mini.bracketed').setup()
+
+    require('mini.pairs').setup()
+
+    require('mini.move').setup {
+      -- Module mappings. Use `''` (empty string) to disable one.
+      mappings = {
+        -- Move visual selection in Visual mode. Defaults are Alt (Meta) + hjkl. (Note to use the actual char from the key combo)
+        -- left = '˙', -- use the key binding for something else?
+        -- right = '¬',
+        left = '',
+        right = '',
+        down = '∆',
+        up = '˚',
+
+        -- Move current line in Normal mode
+        -- line_left = '˙',
+        -- line_right = '¬',
+        line_left = '',
+        line_right = '',
+        line_down = '∆',
+        line_up = '˚',
+      },
+
+      -- Options which control moving behavior
+      options = {
+        -- Automatically reindent selection during linewise vertical move
+        reindent_linewise = true,
+      },
+    }
   end,
 }

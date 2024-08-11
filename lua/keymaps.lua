@@ -37,13 +37,13 @@ map('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 map('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- Move Lines
--- NOTE: macOS does not work with <A-j> style
-map('n', '∆', '<cmd>m .+1<cr>==', { desc = 'Move Down' })
-map('n', '˚', '<cmd>m .-2<cr>==', { desc = 'Move Up' })
-map('i', '∆', '<esc><cmd>m .+1<cr>==gi', { desc = 'Move Down' })
-map('i', '˚', '<esc><cmd>m .-2<cr>==gi', { desc = 'Move Up' })
-map('v', '∆', ":m '>+1<cr>gv=gv", { desc = 'Move Down' })
-map('v', '˚', ":m '<-2<cr>gv=gv", { desc = 'Move Up' })
+-- NOTE: macOS does not work with <A-j> style, use mini.move instead
+-- map('n', '∆', '<cmd>m .+1<cr>==', { desc = 'Move Down' })
+-- map('n', '˚', '<cmd>m .-2<cr>==', { desc = 'Move Up' })
+-- map('i', '∆', '<esc><cmd>m .+1<cr>==gi', { desc = 'Move Down' })
+-- map('i', '˚', '<esc><cmd>m .-2<cr>==gi', { desc = 'Move Up' })
+-- map('v', '∆', ":m '>+1<cr>gv=gv", { desc = 'Move Down' })
+-- map('v', '˚', ":m '<-2<cr>gv=gv", { desc = 'Move Up' })
 map('v', '<', '<gv', { desc = 'Indent left' })
 map('v', '>', '>gv', { desc = 'Indent right' })
 

@@ -91,13 +91,14 @@ require('lazy').setup(
     require 'kickstart.plugins.ui.noice',
     require 'kickstart.plugins.ui.bufferline',
     require 'kickstart.plugins.ui.transparent',
+    require 'kickstart.plugins.ui.scrollbar',
 
     -- require 'kickstart.plugins.ui.bg',
     require 'kickstart.plugins.ui.harpoon',
     require 'kickstart.plugins.ui.dropbar',
 
     require 'kickstart.plugins.ext.mini',
-    require 'kickstart.plugins.ext.autopairs',
+    -- require 'kickstart.plugins.ext.autopairs',  -- use mini.pairs
     require 'kickstart.plugins.ext.argtextobj',
     require 'kickstart.plugins.ext.tmux-navigator',
 
