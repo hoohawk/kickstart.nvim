@@ -20,3 +20,12 @@ vim.api.nvim_create_autocmd({ 'BufEnter', 'WinEnter', 'CursorMoved', 'CursorMove
     vim.api.nvim_set_hl(0, 'CursorLine', { bg = '#2a2f38' })
   end,
 })
+
+-- https://github.com/kevinhwang91/nvim-ufo/issues/33#issuecomment-1664656433
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'nvcheatsheet', 'neo-tree' },
+  callback = function()
+    require('ufo').detach()
+    vim.opt_local.foldenable = false
+  end,
+})
