@@ -92,10 +92,11 @@ require('lazy').setup(
     require 'kickstart.plugins.ui.bufferline',
     require 'kickstart.plugins.ui.transparent',
     require 'kickstart.plugins.ui.scrollbar',
-
     -- require 'kickstart.plugins.ui.bg',
     require 'kickstart.plugins.ui.harpoon',
     require 'kickstart.plugins.ui.dropbar',
+    require 'kickstart.plugins.ui.zen-mode',
+    require 'kickstart.plugins.ui.window-picker', -- best to use it with neotree, `w` picker
 
     require 'kickstart.plugins.ext.mini',
     -- require 'kickstart.plugins.ext.autopairs',  -- use mini.pairs

@@ -129,3 +129,5 @@ map('n', '<leader>n', '<cmd>cn<cr>', { desc = 'Quickfix Next' })
 map('n', '<leader>p', '<cmd>cp<cr>', { desc = 'Quickfix Previous' })
 
 map('n', '<leader>tc', '<cmd>CodeiumToggle<cr>', { desc = 'Toggle - codeium' })
+
+map('n', '<leader>tz', '<cmd>lua require("zen-mode").toggle({ window = { width = 0.8 } })<cr>', { desc = 'Toggle - zen' })
