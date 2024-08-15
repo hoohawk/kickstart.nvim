@@ -10,7 +10,7 @@ return {
   opts = {
     outline_window = {
       position = 'left',
-      width = 20,
+      width = 15,
       wrap = true,
       show_relative_numbers = true,
       show_cursorline = true,
