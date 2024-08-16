@@ -21,6 +21,18 @@ return {
             ['\\'] = 'close_window',
           },
         },
+        filtered_items = {
+          hide_dotfiles = false,
+          hide_gitignored = true,
+          hide_by_name = {
+            '.DS_Store',
+            '.git',
+            'node_modules',
+          },
+          always_show = {
+            '.env',
+          },
+        },
       },
     }
     -- works better with transparent plugin
