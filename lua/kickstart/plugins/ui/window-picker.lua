@@ -25,5 +25,18 @@ return {
         },
       },
     }
+    -- Function to pick a window and move cursor to it
+    function _G.move_cursor_to_picked_window()
+      local picker = require 'window-picker'
+      local window_id = picker.pick_window() -- Pick the window
+
+      if window_id then
+        vim.api.nvim_set_current_win(window_id) -- Move cursor to the picked window
+      end
+    end
   end,
+  keys = {
+    -- Keybinding to call the function
+    { '<Leader>ww', '<cmd>lua move_cursor_to_picked_window()<CR>', desc = 'Pick window' },
+  },
 }

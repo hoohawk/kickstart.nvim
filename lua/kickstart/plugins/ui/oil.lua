@@ -1,6 +1,14 @@
 return {
   'stevearc/oil.nvim',
-  opts = {},
+  opts = {
+    columns = {
+      'icon',
+      'permissions',
+      'size',
+      'mtime',
+    },
+    delete_to_trash = true,
+  },
   keys = {
     { '-', '<cmd>Oil<cr>', desc = 'Oil' },
   },

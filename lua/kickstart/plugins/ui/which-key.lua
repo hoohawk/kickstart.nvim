@@ -16,6 +16,9 @@ return { -- Useful plugin to show you pending keybinds.
       { '<leader>x', group = 'Trouble' },
       { '<leader>q', group = 'Quit/Session' },
       { '<leader>w', group = 'Window' },
+      { '<leader>d', group = 'Debug' },
+      { '<leader>dp', group = 'Python ext' },
+      { '<leader>n', group = 'Neotest' },
     }
     -- normal and visual mode
     require('which-key').add {
