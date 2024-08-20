@@ -5,7 +5,7 @@ return {
   lazy = true,
   cmd = { 'Outline', 'OutlineOpen' },
   keys = { -- Example mapping to toggle outline
-    { '<leader>xo', '<cmd>Outline<CR>', desc = 'Toggle outline' },
+    { '<leader>to', '<cmd>Outline<CR>', desc = 'Toggle code outline' },
   },
   opts = {
     outline_window = {
