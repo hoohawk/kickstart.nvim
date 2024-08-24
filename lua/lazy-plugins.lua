@@ -136,6 +136,7 @@ require('lazy').setup(
     require 'kickstart.plugins.tool.markdown-preview',
     require 'kickstart.plugins.tool.lazydocker',
     require 'kickstart.plugins.tool.obsidian',
+    -- require 'kickstart.plugins.tool.aider',
 
     require 'kickstart.plugins.git.lazygit',
     require 'kickstart.plugins.git.gitsigns', -- adds gitsigns recommend keymaps
