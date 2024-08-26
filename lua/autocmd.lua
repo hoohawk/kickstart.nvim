@@ -29,3 +29,12 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.opt_local.foldenable = false
   end,
 })
+
+-- Autocmd to remap q in LazyGit terminal to bahave like ESC. use `Q` to quit
+vim.api.nvim_create_autocmd('TermOpen', {
+  pattern = 'term://*lazygit',
+  callback = function()
+    -- Map ESC to send the quit command (q) to LazyGit
+    vim.api.nvim_buf_set_keymap(0, 't', 'q', '<Esc>', { noremap = true, silent = true })
+  end,
+})

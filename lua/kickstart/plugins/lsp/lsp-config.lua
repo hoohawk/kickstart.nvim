@@ -82,6 +82,11 @@ return { -- LSP Configuration & Plugins
           require('telescope.builtin').lsp_document_symbols()
         end, 'Symbols - Buffer')
 
+        map('<leader>fm', function()
+          -- require('telescope.builtin').lsp_document_symbols { ignore_symbols = { 'Variable' } }
+          require('telescope.builtin').lsp_document_symbols { symbols = { 'Function', 'Method' } }
+        end, 'Methods - Buffer')
+
         -- Fuzzy find all the symbols in your current workspace.
         --  Similar to document symbols, except searches over your entire project.
         map('<leader>fS', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Symbols - Workspace')
