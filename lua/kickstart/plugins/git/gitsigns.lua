@@ -22,21 +22,21 @@ return {
         -- Navigation --
         ----------------
 
-        map('n', ']c', function()
+        map('n', ']h', function()
           if vim.wo.diff then
             vim.cmd.normal { ']c', bang = true }
           else
             gitsigns.nav_hunk 'next'
           end
-        end, { desc = 'Git: Jump to next change' })
+        end, { desc = 'Git: Hunk' })
 
-        map('n', '[c', function()
+        map('n', '[h', function()
           if vim.wo.diff then
             vim.cmd.normal { '[c', bang = true }
           else
             gitsigns.nav_hunk 'prev'
           end
-        end, { desc = 'Git: Jump to previous change' })
+        end, { desc = 'Git: Hunk' })
 
         -------------
         -- Actions --
