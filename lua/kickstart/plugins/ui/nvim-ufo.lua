@@ -1,25 +1,42 @@
 return {
+  {
+    'luukvbaal/statuscol.nvim',
+    config = function()
+      local builtin = require 'statuscol.builtin'
+      require('statuscol').setup {
+        relculright = true,
+        ft_ignore = { 'neo-tree', 'neotree' },
+        segments = {
+          { text = { builtin.foldfunc }, click = 'v:lua.ScFa' },
+          { text = { '%s' }, click = 'v:lua.ScSa' },
+          { text = { builtin.lnumfunc, ' ' }, click = 'v:lua.ScLa' },
+        },
+      }
+      vim.api.nvim_set_hl(0, 'FoldColumn', { bg = 'NONE', ctermbg = 'NONE' }) -- make it transparent bg
+    end,
+  },
   -- UFO folding
   {
     'kevinhwang91/nvim-ufo',
     dependencies = {
       'kevinhwang91/promise-async',
-      {
-        'luukvbaal/statuscol.nvim',
-        config = function()
-          local builtin = require 'statuscol.builtin'
-          require('statuscol').setup {
-            relculright = true,
-            ft_ignore = { 'neo-tree', 'neotree' },
-            segments = {
-              { text = { builtin.foldfunc }, click = 'v:lua.ScFa' },
-              { text = { '%s' }, click = 'v:lua.ScSa' },
-              { text = { builtin.lnumfunc, ' ' }, click = 'v:lua.ScLa' },
-            },
-          }
-          vim.api.nvim_set_hl(0, 'FoldColumn', { bg = 'NONE', ctermbg = 'NONE' }) -- make it transparent bg
-        end,
-      },
+      'luukvbaal/statuscol.nvim',
+      -- {
+      --   'luukvbaal/statuscol.nvim',
+      --   config = function()
+      --     local builtin = require 'statuscol.builtin'
+      --     require('statuscol').setup {
+      --       relculright = true,
+      --       ft_ignore = { 'neo-tree', 'neotree' },
+      --       segments = {
+      --         { text = { builtin.foldfunc }, click = 'v:lua.ScFa' },
+      --         { text = { '%s' }, click = 'v:lua.ScSa' },
+      --         { text = { builtin.lnumfunc, ' ' }, click = 'v:lua.ScLa' },
+      --       },
+      --     }
+      --     vim.api.nvim_set_hl(0, 'FoldColumn', { bg = 'NONE', ctermbg = 'NONE' }) -- make it transparent bg
+      --   end,
+      -- },
     },
     event = 'BufReadPost',
     opts = {

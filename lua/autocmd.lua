@@ -38,3 +38,8 @@ vim.api.nvim_create_autocmd('TermOpen', {
     vim.api.nvim_buf_set_keymap(0, 't', 'q', '<Esc>', { noremap = true, silent = true })
   end,
 })
+
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  pattern = '*.tpl',
+  command = 'set filetype=helm',
+})
