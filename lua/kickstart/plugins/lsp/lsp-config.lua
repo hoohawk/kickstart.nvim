@@ -82,6 +82,11 @@ return { -- LSP Configuration & Plugins
           require('telescope.builtin').lsp_document_symbols()
         end, 'Symbols - Buffer')
 
+        map('<leader>fc', function()
+          -- require('telescope.builtin').lsp_document_symbols { ignore_symbols = { 'Variable' } }
+          require('telescope.builtin').lsp_document_symbols { symbols = { 'Class' } }
+        end, 'Classes - Buffer')
+
         map('<leader>fm', function()
           -- require('telescope.builtin').lsp_document_symbols { ignore_symbols = { 'Variable' } }
           require('telescope.builtin').lsp_document_symbols { symbols = { 'Function', 'Method' } }
