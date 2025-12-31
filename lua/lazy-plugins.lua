@@ -148,6 +148,7 @@ require('lazy').setup(
 
     require 'kickstart.plugins.tool.augment',
 
+    require 'kickstart.plugins.tool.snacks',
     require 'kickstart.plugins.tool.claudecode',
 
     -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
