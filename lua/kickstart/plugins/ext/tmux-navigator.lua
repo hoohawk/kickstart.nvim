@@ -1,6 +1,10 @@
 return {
   'christoomey/vim-tmux-navigator',
   cond = not vim.g.vscode,
+  init = function()
+    -- Disable default mappings, we'll set our own
+    vim.g.tmux_navigator_no_mappings = 1
+  end,
   cmd = {
     'TmuxNavigateLeft',
     'TmuxNavigateDown',
@@ -9,11 +13,16 @@ return {
     'TmuxNavigatePrevious',
   },
   keys = {
-    { '<c-h>', '<cmd><C-U>TmuxNavigateLeft<cr>' },
-    { '<c-j>', '<cmd><C-U>TmuxNavigateDown<cr>' },
-    { '<c-k>', '<cmd><C-U>TmuxNavigateUp<cr>' },
-    { '<c-l>', '<cmd><C-U>TmuxNavigateRight<cr>' },
-    -- this key has conflict with default keymap from toggleterm
-    { '<c-\\>', '<cmd><C-U>TmuxNavigatePrevious<cr>' },
+    -- Normal mode
+    { '<c-h>', '<cmd>TmuxNavigateLeft<cr>', mode = 'n' },
+    { '<c-j>', '<cmd>TmuxNavigateDown<cr>', mode = 'n' },
+    { '<c-k>', '<cmd>TmuxNavigateUp<cr>', mode = 'n' },
+    { '<c-l>', '<cmd>TmuxNavigateRight<cr>', mode = 'n' },
+    { '<c-\\>', '<cmd>TmuxNavigatePrevious<cr>', mode = 'n' },
+    -- Terminal mode: escape first, then navigate
+    { '<c-h>', '<c-\\><c-n><cmd>TmuxNavigateLeft<cr>', mode = 't' },
+    { '<c-j>', '<c-\\><c-n><cmd>TmuxNavigateDown<cr>', mode = 't' },
+    { '<c-k>', '<c-\\><c-n><cmd>TmuxNavigateUp<cr>', mode = 't' },
+    { '<c-l>', '<c-\\><c-n><cmd>TmuxNavigateRight<cr>', mode = 't' },
   },
 }
