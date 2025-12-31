@@ -95,6 +95,138 @@ vim.g.have_nerd_font = true
 
 -- For VSCode
 if vim.g.vscode then
+  vim.opt.clipboard = 'unnamedplus'
+
+  local vscode = require 'vscode'
+  print(vscode.call '_ping')
+
+  vim.api.nvim_create_autocmd('TextYankPost', {
+    pattern = '*',
+    callback = function()
+      vim.highlight.on_yank {
+        higroup = 'IncSearch',
+        timeout = 150,
+        on_visual = true,
+      }
+    end,
+  })
+
+  -- Updated to use vscode.with_insert pattern
+  vim.keymap.set('n', 'gr', function()
+    vscode.action 'editor.action.goToReferences'
+
+    -- Set up a one-time autocmd to ensure we're in normal mode after selection
+    vim.api.nvim_create_autocmd('BufEnter', {
+      callback = function()
+        vim.cmd 'normal! <Esc>'
+        return true -- This ensures the autocmd runs only once
+      end,
+      once = true,
+    })
+  end, { silent = true })
+  vim.keymap.set('n', 'gm', function()
+    vscode.action 'editor.action.codeAction'
+  end, { silent = true })
+
+  vim.keymap.set('n', '<leader>lr', function()
+    vscode.action 'editor.action.rename'
+  end, { silent = true })
+
+  -- Convert all VSCodeNotify calls to vscode.action
+  vim.keymap.set('n', '<leader>ff', function()
+    -- search files by name
+    vscode.action 'workbench.action.quickOpen'
+  end, { silent = true })
+  vim.keymap.set('n', '<leader>fm', function()
+    -- search symbols in current buffer
+    vscode.action('workbench.action.quickOpen', { args = { '@:' } })
+  end, { silent = true })
+  vim.keymap.set('n', '<leader>fg', function()
+    -- search symbols in workspace
+    vscode.action('workbench.action.quickOpen', { args = { '#' } })
+  end, { silent = true })
+  vim.keymap.set('n', '<leader>fG', function()
+    -- search bar
+    vscode.action 'workbench.action.findInFiles'
+  end, { silent = true })
+
+  vim.keymap.set('n', '<leader>fw', function()
+    local word = vim.fn.expand '<cword>'
+    vim.cmd('call VSCodeNotify("workbench.action.findInFiles", { "query": "' .. word .. '" })')
+  end, { noremap = true, silent = true, desc = 'Find in files: current word' })
+
+  vim.keymap.set('n', '<leader>gg', function()
+    vscode.action 'workbench.view.scm'
+  end, { noremap = true, silent = true, desc = 'Git version control' })
+
+  vim.keymap.set('n', '<leader>o', function()
+    vscode.action 'outline.focus'
+  end, { silent = true })
+
+  vim.keymap.set('n', '<leader>a', function()
+    vscode.action 'editor.action.selectAll'
+  end, { silent = true })
+
+  vim.keymap.set('n', '\\', function()
+    vscode.action 'workbench.files.action.showActiveFileInExplorer'
+  end, { silent = true })
+
+  vim.keymap.set('n', '<leader>p', function()
+    vscode.action 'workbench.action.showCommands'
+  end, { silent = true, desc = 'Open command palette' })
+
+  vim.keymap.set('n', '<leader>we', function()
+    vscode.action 'workbench.action.evenEditorWidths'
+  end, { silent = true })
+  vim.keymap.set('n', '<leader>wm', function()
+    vscode.action 'workbench.action.toggleEditorWidths'
+  end, { silent = true })
+
+  -- Override :e to not show quick open
+  -- Create custom command handler
+  vim.api.nvim_create_user_command('E', function(opts)
+    local filename = opts.args
+    if filename and filename ~= '' then
+      vscode.action('workbench.action.files.openFile', { args = { filename } })
+    else
+      -- Do nothing if no filename
+      vim.cmd 'echo "No filename provided"'
+    end
+  end, { nargs = '?', complete = 'file' })
+
+  -- Remap :e to our custom command
+  vim.cmd [[cnoreabbrev e E]]
+  vim.cmd [[cnoreabbrev E E]]
+
+  -- For context-aware functionality (experimental)
+  -- Define the function in Lua
+  _G.is_outline_focused = function()
+    return vim.g.vscode and vim.fn.exists 'g:vscode_focused_view' == 1 and vim.g.vscode_focused_view == 'outline'
+  end
+
+  -- Define the mappings using Lua with vscode.action
+  vim.keymap.set('n', 'zc', function()
+    if _G.is_outline_focused() then
+      vscode.action 'outline.collapse'
+    else
+      vscode.action 'editor.fold'
+    end
+  end, { silent = true, desc = 'Context-aware collapse/fold' })
+
+  vim.keymap.set('n', 'zo', function()
+    if _G.is_outline_focused() then
+      vscode.action 'outline.expand'
+    else
+      vscode.action 'editor.unfold'
+    end
+  end, { silent = true, desc = 'Context-aware expand/unfold' })
+
+  -- import lazy-plugins.lua
+  require 'lazy-plugins'
+
+  -- Additional keymaps after plugin setup
+  vim.keymap.set('n', 'L', '<cmd>HopLine<cr>', { desc = 'Flash line (by hop)' })
+
   return
 end
 

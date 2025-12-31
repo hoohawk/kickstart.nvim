@@ -10,6 +10,7 @@ end
 
 return {
   'sindrets/diffview.nvim',
+  cond = not vim.g.vscode,
   dependencies = 'nvim-lua/plenary.nvim',
   config = function()
     -- Set the keybinding to call the global function

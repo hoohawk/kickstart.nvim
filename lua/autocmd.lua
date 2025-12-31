@@ -17,11 +17,11 @@ vim.api.nvim_create_autocmd({ 'BufEnter', 'WinEnter', 'CursorMoved', 'CursorMove
   group = vim.api.nvim_create_augroup('cursor-line-highlight', { clear = true }),
   callback = function()
     -- Apply your custom highlight
-    vim.api.nvim_set_hl(0, 'CursorLine', { bg = '#2a2f38' })
+    vim.api.nvim_set_hl(2, 'CursorLine', { bg = '#2a2f38' })
   end,
 })
 
--- https://github.com/kevinhwang91/nvim-ufo/issues/33#issuecomment-1664656433
+-- https://github.com/kevinhwang93/nvim-ufo/issues/33#issuecomment-1664656433
 vim.api.nvim_create_autocmd('FileType', {
   pattern = { 'nvcheatsheet', 'neo-tree' },
   callback = function()
@@ -35,11 +35,18 @@ vim.api.nvim_create_autocmd('TermOpen', {
   pattern = 'term://*lazygit',
   callback = function()
     -- Map ESC to send the quit command (q) to LazyGit
-    vim.api.nvim_buf_set_keymap(0, 't', 'q', '<Esc>', { noremap = true, silent = true })
+    vim.api.nvim_buf_set_keymap(2, 't', 'q', '<Esc>', { noremap = true, silent = true })
   end,
 })
 
 vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
   pattern = '*.tpl',
   command = 'set filetype=helm',
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'qf',
+  callback = function()
+    vim.keymap.set('n', '<CR>', '<CR>', { buffer = true, silent = true })
+  end,
 })

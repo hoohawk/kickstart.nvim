@@ -1,7 +1,13 @@
 return {
   'xiyaowong/transparent.nvim',
+  cond = not vim.g.vscode,
   priority = 2000, -- load this before others
-  init = function()
-    vim.g.transparent_groups = vim.list_extend(vim.g.transparent_groups or {}, { 'ExtraGroup' })
-  end,
+  opts = {
+    extra_groups = {
+      'NormalFloat',
+      'FloatBorder',
+      'SnacksTerminal',
+      'SnacksTerminalNormal',
+    },
+  },
 }

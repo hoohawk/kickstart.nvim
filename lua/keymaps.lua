@@ -68,23 +68,32 @@ map('v', 'p', '"_dP') -- V mode: paste without clearing the content
 map('n', 'x', '"_x') -- N mode: delete without copying into register
 map('n', '<leader>a', 'ggVG', { desc = 'Select All' })
 map('n', '<leader>c', '<cmd>bd<cr>', { desc = 'Close Buffer' })
+map('n', '<leader>C', '<cmd>%bd|e#<cr>', { desc = 'Quit Buffers except current' })
 -- map('n', '<leader>w', '<cmd>wa<cr>', { desc = 'Save All' })
 map('n', '<leader>qq', '<cmd>qa<cr>', { desc = 'Quit All' })
 map('n', '<leader>qB', '<cmd>%bd|e#<cr>', { desc = 'Quit Buffers except current' })
-map('i', 'jk', '<esc>', { desc = 'ESC' })
+map({ 'i', 'v' }, 'jk', '<esc>', { desc = 'ESC' })
 
 -- Neotree Explorer
 map('n', '<leader>o', '<cmd>Neotree toggle reveal<cr>', { desc = 'Neotree Open/Close' })
 
 -- map('n', '<leader>cv', '<cmd>AerialToggle!<CR>', { desc = 'Aerial View' })  -- favor trouble symbols toggle
--- should you just use Tmux?
-map('n', '<C-/>', '<cmd>ToggleTerm direction=float<cr>', { desc = 'ToggleTerm' })
-map('t', '<C-/>', '<C-\\><C-n><C-w>l', { desc = 'ToggleTerm' })
+-- Snacks terminal toggle (floating centered)
+local snacks_term_opts = {
+  win = {
+    position = 'float',
+    width = 0.8,
+    height = 0.8,
+    border = 'rounded',
+  },
+}
+map('n', '<C-/>', function() Snacks.terminal(nil, snacks_term_opts) end, { desc = 'Snacks Terminal' })
+map('t', '<C-/>', '<cmd>close<cr>', { desc = 'Close Snacks Terminal' })
 
 -- '<C-/>' is tricky with tmux. Use <C-_>, because the terminal would interpret c-/ as ASCII control character SUB (substitute).
 -- this provides the same functionality as using c-/ in standard iterm window
-vim.api.nvim_set_keymap('n', '<C-_>', ':ToggleTerm direction=float<CR>', { noremap = true, silent = true, desc = 'Toggle Terminal' })
-vim.api.nvim_set_keymap('t', '<C-_>', '<C-\\><C-n>:ToggleTerm<CR>', { noremap = true, silent = true, desc = 'Toggle Terminal' })
+map('n', '<C-_>', function() Snacks.terminal(nil, snacks_term_opts) end, { noremap = true, silent = true, desc = 'Snacks Terminal' })
+map('t', '<C-_>', '<C-\\><C-n><cmd>close<CR>', { noremap = true, silent = true, desc = 'Close Snacks Terminal' })
 
 -- Preview code action changes
 map({ 'v', 'n' }, 'gm', '<cmd>lua require("actions-preview").code_actions()<CR>', { desc = 'LSP: Code Action Menu' })

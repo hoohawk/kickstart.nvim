@@ -2,6 +2,7 @@ return {
   -- nvim-dap and nvim-dap-ui
   {
     'mfussenegger/nvim-dap',
+    cond = not vim.g.vscode,
     keys = {
       { '<leader>dc', "<cmd>lua require'dap'.continue()<cr>", desc = 'Continue' },
       { '<leader>db', "<cmd>lua require'dap'.toggle_breakpoint()<cr>", desc = 'Breakpoint' },

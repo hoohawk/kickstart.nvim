@@ -1,5 +1,6 @@
 return {
   'epwalsh/obsidian.nvim',
+  cond = not vim.g.vscode,
   version = '*', -- recommended, use latest release instead of latest commit
   lazy = true,
   -- ft = 'markdown',

@@ -1,6 +1,7 @@
 return {
   -- you may need to do `brew install node`, `brew install yarn`
   'iamcco/markdown-preview.nvim',
+  cond = not vim.g.vscode,
   cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
   build = 'cd app && yarn install',
   init = function()

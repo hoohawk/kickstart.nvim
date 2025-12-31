@@ -1,5 +1,6 @@
 return { -- Fuzzy Finder (files, lsp, etc)
   'nvim-telescope/telescope.nvim',
+  cond = not vim.g.vscode,
   event = 'VimEnter',
   branch = '0.1.x',
   dependencies = {
@@ -21,6 +22,13 @@ return { -- Fuzzy Finder (files, lsp, etc)
 
     -- Useful for getting pretty icons, but requires a Nerd Font.
     { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+
+    {
+      'nvim-telescope/telescope-live-grep-args.nvim',
+      -- This will not install any breaking changes.
+      -- For major updates, this must be adjusted manually.
+      version = '^1.0.0',
+    },
   },
   config = function()
     -- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -66,6 +74,9 @@ return { -- Fuzzy Finder (files, lsp, etc)
         ['ui-select'] = {
           require('telescope.themes').get_dropdown(),
         },
+        live_grep_args = {
+          auto_quoting = true,
+        },
       },
     }
 
@@ -73,6 +84,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     pcall(require('telescope').load_extension, 'fzf')
     pcall(require('telescope').load_extension, 'ui-select')
     pcall(require('telescope').load_extension, 'aerial')
+    pcall(require('telescope').load_extension, 'live_grep_args')
 
     -- See `:help telescope.builtin`
     local builtin = require 'telescope.builtin'
@@ -85,12 +97,15 @@ return { -- Fuzzy Finder (files, lsp, etc)
     vim.keymap.set('n', '<leader>fT', builtin.builtin, { desc = 'Telescope builtin' })
     vim.keymap.set('n', '<leader>fw', builtin.grep_string, { desc = 'Grep current Word' })
     -- vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Grep' })
-    vim.keymap.set(
-      'n',
-      '<leader>fg',
-      "<cmd>lua require('telescope.builtin').live_grep ({ additional_args = {'--hidden'} })<cr>",
-      { desc = 'Grep All (exc. gitignore etc.)' }
-    )
+    -- vim.keymap.set(
+    --   'n',
+    --   '<leader>fg',
+    --   "<cmd>lua require('telescope.builtin').live_grep ({ additional_args = {'--hidden'} })<cr>",
+    --   { desc = 'Grep All (exc. gitignore etc.)' }
+    -- )
+
+    vim.keymap.set('n', '<leader>fg', "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>", { desc = 'Grep with args' })
+
     vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = 'Diagnostics' })
     vim.keymap.set('n', '<leader>fr', builtin.resume, { desc = 'Resume' })
     vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Buffers' })

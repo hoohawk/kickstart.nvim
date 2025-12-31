@@ -1,5 +1,6 @@
 return {
   'folke/edgy.nvim',
+  cond = not vim.g.vscode,
   event = 'VeryLazy',
   init = function()
     vim.opt.laststatus = 3

@@ -1,5 +1,6 @@
 return {
   'Exafunction/codeium.vim',
+  cond = not vim.g.vscode,
   -- event = 'BufEnter',
   config = function()
     vim.keymap.set('i', '<c-y>', function()

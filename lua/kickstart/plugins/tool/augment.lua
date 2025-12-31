@@ -1,3 +1,4 @@
 return {
-  'augmentcode/augment.vim',
+  -- 'augmentcode/augment.vim',
+  -- cond = not vim.g.vscode,
 }
